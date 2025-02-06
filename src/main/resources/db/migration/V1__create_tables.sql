@@ -1,15 +1,14 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    login VARCHAR(50) NOT NULL UNIQUE
+    given_name VARCHAR(50) NOT NULL,
+    family_name VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE TABLE user_security(
     security_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    phone_number VARCHAR(20) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    phone_number VARCHAR(20)  UNIQUE
 );
 
 CREATE TABLE categories(
